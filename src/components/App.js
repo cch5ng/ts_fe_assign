@@ -13,7 +13,7 @@ const App = () => (
 
 			<div className="input-icons">
             <img src={searchIcon} className="icon" />
-            <input className="input-field" type="text" />
+            <input className="input-field" type="text" placeholder="Search for a movie"/>
 			</div>
 		</header>
 		<main>
