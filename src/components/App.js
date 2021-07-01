@@ -28,6 +28,11 @@ const App = () => {
 		}
 	}
 
+	const handleModalClose = () => {
+		setDisplayModal(false);
+		setModalId(null);
+	}
+
 	const getSortedMovies = () => {
 		return movies.sort((a, b) => {
 			if (a.release_date < b.release_date) {
@@ -89,7 +94,7 @@ const App = () => {
 	
 				</div>
 				{displayModal && modalMovie && (
-					<Modal movie={modalMovie} />
+					<Modal movie={modalMovie} handleModalClose={handleModalClose} />
 				)}
 			</main>
 		</div>
