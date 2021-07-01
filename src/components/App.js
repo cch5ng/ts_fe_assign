@@ -3,15 +3,29 @@ import { useState, useEffect } from 'react';
 import logo from '../images/logo.svg';
 import searchIcon from '../images/search-icon.svg';
 import Movie from './Movie';
+import Modal from './Modal';
 import './App.css';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
+	const [displayModal, setDisplayModal] = useState(false);
+	const [modalId, setModalId] = useState(null);
 
 	const handleQueryUpdate = (ev) => {
 		const {value} = ev.target;
 		setSearchQuery(value);
+	}
+
+	const handleModalOpen = (ev) => {
+		console.log('gets here')
+		console.log('ev', ev)
+		 const {id} = ev.target;
+		console.log('id', id)
+		if (id) {
+			setModalId(id);
+			setDisplayModal(!displayModal);
+		}
 	}
 
 	const getSortedMovies = () => {
@@ -45,6 +59,13 @@ const App = () => {
 	}, [searchQuery]);
 
 	let sortedMovies = movies.length ? getSortedMovies(): [];
+	let moviesDict = {};
+	movies.forEach(movie => {
+		moviesDict[movie.id] = movie;
+	});
+	console.log('moviesDict', moviesDict)
+	let modalMovie = moviesDict[modalId];
+	console.log('modalMovie', modalMovie);
 
 	return (
 		<div className="app">
@@ -63,11 +84,13 @@ const App = () => {
 				<h1>Most Recent Movies</h1>
 				<div className="movies_list_container">
 					{sortedMovies.map(movie => (
-						<Movie key={movie.id} movie={movie}/>
+						<Movie key={movie.id} movie={movie} handleModalOpen={handleModalOpen} />
 					))}
 	
 				</div>
-	
+				{displayModal && modalMovie && (
+					<Modal movie={modalMovie} />
+				)}
 			</main>
 		</div>
 	)
