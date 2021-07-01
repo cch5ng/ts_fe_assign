@@ -1,23 +1,26 @@
 .poster_container {
   /* max-height: 302px; */
-  max-width: 280px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .poster {
-  width: 280px;
+  min-width: 280px;
+  max-width: 100%;
 }
 
 .title {
   background-color: #fff;
   width: 100%;
-  height: 46px;
+  height: 52px;
   border: 1px solid #E1E3E6;
   border-top: none;
   box-shadow: 1px 2px 8px 2px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   text-align: center;
-  max-width: 280px;
+  min-width: 280px;
+  max-width: 100%;
   margin-top: -5px;
   padding-top: 10px;
 }
@@ -35,4 +38,27 @@
   font-weight: 600;
   font-size: 12px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .poster_container {
+    /* max-height: 302px; */
+    max-width: 280px;
+    margin: 0;
+  }
+
+  .title {
+    max-width: 280px;
+  }
+
+  .movie_container {
+    width: 50%;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  .movie_container {
+    width: 25%;
+  }
 }
