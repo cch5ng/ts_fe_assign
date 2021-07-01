@@ -5,7 +5,7 @@ const Movie = ({ movie, handleModalOpen }) => {
   return (
     <div className="movie_container" onClick={(ev) => handleModalOpen(ev)}>
       <div className="vote">{movie.vote_average}</div>
-      <div className="poster_container"><img id={movie.id} className="poster" src={imgUrl} alt="poster image" /></div>
+      <div className="poster_container"><img id={movie.id} className="poster" src={imgUrl} alt="movie poster" /></div>
       <div className="title">{movie.title}</div>
     </div>
   )
