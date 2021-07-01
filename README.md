@@ -1,3 +1,17 @@
+# Notes to Reviewer
+
+* I used npm to install and run the app.
+
+* For the initial API fetch, I hard coded a query based on US region and getting movies releasing closest to the current date.
+
+* If I had more time I'd work on:
+
+   * Fix missing search icon (it was showing and then I lost it)
+
+   * CSS, going through to see if it could be more DRY.
+
+   * It should use pagination but not sure if that was required (?)
+
 # Timescale Frontend Interview Assignment
 
 Thank you for taking the time to apply for a front end position at Timescale!
