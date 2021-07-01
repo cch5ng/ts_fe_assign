@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import logo from '../images/logo.svg';
+import searchIcon from '../images/search-icon.svg';
 import './App.css';
 
 const App = () => (
@@ -9,8 +10,10 @@ const App = () => (
 			<div>
 				<img src={logo} alt="Timescale" />
 			</div>
-			<div>
-				<input type="text" />
+
+			<div className="input-icons">
+            <img src={searchIcon} className="icon" />
+            <input className="input-field" type="text" />
 			</div>
 		</header>
 		<main>
