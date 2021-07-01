@@ -3,7 +3,7 @@ import moment from 'moment';
 import './Modal.css';
 import closeIcon from '../images/close-icon.svg';
 
-const Modal = ({ movie }) => {
+const Modal = ({ movie, handleModalClose }) => {
   const imgUrl = `${process.env.REACT_APP_API_BASE_IMAGE_URL}${movie.poster_path}`;
 
   const getFormattedDate = () => {
@@ -15,7 +15,7 @@ const Modal = ({ movie }) => {
       <div className="modal_box">
         <div className="modal_header">
           <div className="modal_title">{movie.title}</div>
-          <div><img alt="close modal icon" src={closeIcon} /></div>
+          <div onClick={handleModalClose}><img alt="close modal icon" src={closeIcon} /></div>
         </div>
         <div className="modal_body">
           <div className="modal_body_el">

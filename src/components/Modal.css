@@ -1,20 +1,10 @@
-.modal_container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-  width: 100vw;
-  min-height: 100vh;
-}
-
 .modal_box {
   background-color: #fff;
   position: absolute;
-  width: 583px;
-  height: 474px;
-  left: calc(50vw - 1/2 * 583px);
-  top: 20vh;  
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   padding: 28px;
 }
 
@@ -34,18 +24,18 @@
 
 .modal_body {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: flex-start;
   font-size: 14px;
 }
 
 .modal_body_el {
-  width: 50%;
+  width: 100%;
 }
 
 .modal_image {
-  max-width: 250px;
+  max-width: 90%;
   max-height: 375px;
 }
 
@@ -55,4 +45,45 @@
 
 .modal_description {
   margin-bottom: 16px;
+}
+
+@media (min-width: 700px) {
+
+  .modal_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  
+  .modal_box {
+    background-color: #fff;
+    position: absolute;
+    width: 583px;
+    height: 474px;
+    left: calc(50vw - 1/2 * 583px);
+    top: 20vh;  
+    padding: 28px;
+  }
+    
+  .modal_body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-size: 14px;
+  }
+  
+  .modal_body_el {
+    width: 50%;
+  }
+  
+  .modal_image {
+    max-width: 250px;
+    max-height: 375px;
+  }
+
 }
