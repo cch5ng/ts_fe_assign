@@ -35,18 +35,24 @@ input {
   border-radius: 2px;
 }
 
-/* .input-field {
-  //width: 100%;
-  //padding: 10px;
-  text-align: center;
-} */
+input::placeholder {
+  color: #C0C4CC;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
 
 @media (min-width: 768px) {
-
+  .app {
+    padding: 20px 10% 100px 10%;
+  }
 }
 
 @media (min-width: 900px) {
   .app {
-    padding: 20px 10% 100px 10%;
+    padding: 20px 15% 100px 15%;
   }
 }
