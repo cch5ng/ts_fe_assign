@@ -15,6 +15,7 @@ header {
 .input-icons img {
   height: 16px;
   position: absolute;
+  z-index: 5;
 }
 
 .input-icons {
@@ -25,6 +26,7 @@ header {
 .icon {
   padding: 10px;
   min-width: 40px;
+  
 }
 
 input {
@@ -43,6 +45,7 @@ h1 {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
+  margin-top: 16px;
 }
 
 
