@@ -7,24 +7,12 @@ import './App.css';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
+	const [searchQuery, setSearchQuery] = useState('');
 
-	useEffect(() => {
-
-//sample url
-//
-		const url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&release_date.lte=2021-07-01&with_release_type=2|3`;
-		fetch(url)
-			.then(resp => resp.json())
-			.then(json => {
-				console.log('json', json)
-				if (json.results) {
-					setMovies(json.results);
-				}
-			})
-			.catch(err => console.error(err))
-
-
-	}, []);
+	const handleQueryUpdate = (ev) => {
+		const {value} = ev.target;
+		setSearchQuery(value);
+	}
 
 	const getSortedMovies = () => {
 		return movies.sort((a, b) => {
@@ -38,8 +26,25 @@ const App = () => {
 		})
 	}
 
+	useEffect(() => {
+		let url;
+		if (!searchQuery) {
+			url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&release_date.lte=2021-07-01&with_release_type=2|3`;
+		} 
+		if (searchQuery) {
+			url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&query=${searchQuery}`			
+		}
+		fetch(url)
+			.then(resp => resp.json())
+			.then(json => {
+				if (json.results) {
+					setMovies(json.results);
+				}
+			})
+			.catch(err => console.error(err))
+	}, [searchQuery]);
+
 	let sortedMovies = movies.length ? getSortedMovies(): [];
-	console.log('sortedMovies', sortedMovies);
 
 	return (
 		<div className="app">
@@ -50,7 +55,8 @@ const App = () => {
 	
 				<div className="input-icons">
 							<img src={searchIcon} className="icon" />
-							<input className="input-field" type="text" placeholder="Search for a movie"/>
+							<input className="input-field" type="text" placeholder="Search for a movie"
+								value={searchQuery} onChange={handleQueryUpdate} />
 				</div>
 			</header>
 			<main>
