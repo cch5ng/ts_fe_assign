@@ -18,10 +18,7 @@ const App = () => {
 	}
 
 	const handleModalOpen = (ev) => {
-		console.log('gets here')
-		console.log('ev', ev)
-		 const {id} = ev.target;
-		console.log('id', id)
+		const {id} = ev.target;
 		if (id) {
 			setModalId(id);
 			setDisplayModal(!displayModal);
@@ -68,9 +65,7 @@ const App = () => {
 	movies.forEach(movie => {
 		moviesDict[movie.id] = movie;
 	});
-	console.log('moviesDict', moviesDict)
 	let modalMovie = moviesDict[modalId];
-	console.log('modalMovie', modalMovie);
 
 	return (
 		<div className="app">
@@ -80,9 +75,9 @@ const App = () => {
 				</div>
 	
 				<div className="input-icons">
-							<img src={searchIcon} className="icon" />
-							<input className="input-field" type="text" placeholder="Search for a movie"
-								value={searchQuery} onChange={handleQueryUpdate} />
+					<img src={searchIcon} className="icon" />
+					<input className="input-field" type="text" placeholder="Search for a movie"
+						value={searchQuery} onChange={handleQueryUpdate} />
 				</div>
 			</header>
 			<main>
