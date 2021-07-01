@@ -1,0 +1,68 @@
+.app {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #C0C4CC;
+  padding-bottom: 20px;
+}
+
+
+.input-icons img {
+  height: 16px;
+  position: absolute;
+}
+
+.input-icons {
+  /* width: 100%; */
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+input {
+  width: 180px;
+  height: 16px;
+  border: 1px solid #C0C4CC;
+  padding: 10px 10px 10px 45px;
+  border-radius: 2px;
+}
+
+input::placeholder {
+  color: #C0C4CC;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+
+@media (min-width: 768px) {
+  .app {
+    padding: 20px 5% 100px 5%;
+  }
+
+  .movies_list_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+}
+
+/* @media (min-width: 900px) {
+  .app {
+    padding: 20px 15% 100px 15%;
+  }
+} */
