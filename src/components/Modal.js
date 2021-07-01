@@ -19,7 +19,7 @@ const Modal = ({ movie, handleModalClose }) => {
         </div>
         <div className="modal_body">
           <div className="modal_body_el">
-            <img src={imgUrl} className="modal_image" alt="movie poster image" />
+            <img src={imgUrl} className="modal_image" alt="movie poster" />
           </div>
           <div className="modal_body_el">
             <div className="modal_description"><span className="bold">Release Date:</span> {getFormattedDate()}</div>

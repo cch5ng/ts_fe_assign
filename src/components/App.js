@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 
 import logo from '../images/logo.svg';
 import searchIcon from '../images/search-icon.svg';
@@ -45,7 +46,8 @@ const App = () => {
 	useEffect(() => {
 		let url;
 		if (!searchQuery) {
-			url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&release_date.lte=2021-07-01&with_release_type=2|3`;
+			let curDate = moment().format('YYYY-MM-DD');
+			url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&release_date.lte=${curDate}&with_release_type=2|3`;
 		} 
 		if (searchQuery) {
 			url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&query=${searchQuery}`			
@@ -75,7 +77,7 @@ const App = () => {
 				</div>
 	
 				<div className="input-icons">
-					<img src={searchIcon} className="icon" />
+					<img src={searchIcon} className="icon" alt="search icon" />
 					<input className="input-field" type="text" placeholder="Search for a movie"
 						value={searchQuery} onChange={handleQueryUpdate} />
 				</div>
