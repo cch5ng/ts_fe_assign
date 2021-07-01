@@ -1,0 +1,30 @@
+.app {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #C0C4CC;
+  padding-bottom: 20px;
+}
+
+input {
+  width: 180px;
+  height: 16px;
+  border: 1px solid #C0C4CC;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 900px) {
+  .app {
+    padding: 20px 10% 100px 10%;
+  }
+}
