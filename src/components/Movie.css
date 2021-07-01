@@ -57,6 +57,12 @@
   
 }
 
+@media (min-width: 1000px) {
+  .movie_container {
+    width: 33%;
+  }
+}
+
 @media (min-width: 1200px) {
   .movie_container {
     width: 25%;
