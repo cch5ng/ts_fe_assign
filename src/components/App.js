@@ -3,15 +3,31 @@ import { useState, useEffect } from 'react';
 import logo from '../images/logo.svg';
 import searchIcon from '../images/search-icon.svg';
 import Movie from './Movie';
+import Modal from './Modal';
 import './App.css';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
+	const [displayModal, setDisplayModal] = useState(false);
+	const [modalId, setModalId] = useState(null);
 
 	const handleQueryUpdate = (ev) => {
 		const {value} = ev.target;
 		setSearchQuery(value);
+	}
+
+	const handleModalOpen = (ev) => {
+		const {id} = ev.target;
+		if (id) {
+			setModalId(id);
+			setDisplayModal(!displayModal);
+		}
+	}
+
+	const handleModalClose = () => {
+		setDisplayModal(false);
+		setModalId(null);
 	}
 
 	const getSortedMovies = () => {
@@ -45,6 +61,11 @@ const App = () => {
 	}, [searchQuery]);
 
 	let sortedMovies = movies.length ? getSortedMovies(): [];
+	let moviesDict = {};
+	movies.forEach(movie => {
+		moviesDict[movie.id] = movie;
+	});
+	let modalMovie = moviesDict[modalId];
 
 	return (
 		<div className="app">
@@ -54,20 +75,22 @@ const App = () => {
 				</div>
 	
 				<div className="input-icons">
-							<img src={searchIcon} className="icon" />
-							<input className="input-field" type="text" placeholder="Search for a movie"
-								value={searchQuery} onChange={handleQueryUpdate} />
+					<img src={searchIcon} className="icon" />
+					<input className="input-field" type="text" placeholder="Search for a movie"
+						value={searchQuery} onChange={handleQueryUpdate} />
 				</div>
 			</header>
 			<main>
 				<h1>Most Recent Movies</h1>
 				<div className="movies_list_container">
 					{sortedMovies.map(movie => (
-						<Movie key={movie.id} movie={movie}/>
+						<Movie key={movie.id} movie={movie} handleModalOpen={handleModalOpen} />
 					))}
 	
 				</div>
-	
+				{displayModal && modalMovie && (
+					<Modal movie={modalMovie} handleModalClose={handleModalClose} />
+				)}
 			</main>
 		</div>
 	)
