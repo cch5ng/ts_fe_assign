@@ -11,7 +11,13 @@ const App = () => {
 
 //sample url
 //
-		const url = `https://api.themoviedb.org/3/discover/movie?api_key={process.env.REACT_APP_MOVIE_DB_API_KEY}&language=de-DE&region=DE&release_date.gte=2016-11-16&release_date.lte=2016-12-02&with_release_type=2|3`;
+		const url = `https://api.themoviedb.org/3/discover/movie?api_key={process.env.REACT_APP_MOVIE_DB_API_KEY}&region=US&release_date.lte=2021-07-01&with_release_type=2|3`;
+		fetch(url)
+			.then(resp => resp.json())
+			.then(json => {
+				console.log('json', json)
+			})
+			.catch(err => console.error(err))
 
 
 	}, []);
